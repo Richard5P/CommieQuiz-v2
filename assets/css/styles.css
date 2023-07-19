@@ -34,3 +34,13 @@ h1 {
     align-self: center;    
     text-align: center;
 }
+
+.info_bar {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+}
