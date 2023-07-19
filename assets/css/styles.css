@@ -1,5 +1,15 @@
+@font-face {
+    font-family:'propaganda';
+    src: url(../fonts/propaganda.ttf);
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'PytoneOne';
+    src: url(../fonts/PaytoneOne-Regular.ttf);
+}
+
 html, body {
-/*    font-size: 62.5%; sets the base font-size(rem) to 10px so .1rem = 1px*/ 
+    font-size: 62.5%; /* sets the base font-size(rem) to 10px so .1rem = 1px*/ 
     margin: 0; 
     padding: 0;
     box-sizing: border-box;
@@ -33,6 +43,20 @@ h1 {
     margin: 0;
     align-self: center;    
     text-align: center;
+}
+
+/* Quiz Container Style */
+
+.quiz-container {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px #fff9e6 solid;
+    outline: 1px solid #fff9e6;
+    outline-offset: -6px;
+    max-width: 80%;
+    width: 100%;
+    justify-self: center;
+    align-self: center;
+    padding: 10px;
 }
 
 .info_bar {
