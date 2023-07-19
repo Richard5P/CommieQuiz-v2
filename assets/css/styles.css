@@ -1,5 +1,16 @@
+@font-face {
+    font-family:'propaganda';
+    src: url(../fonts/propaganda.ttf);
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'PytoneOne';
+    src: url(../fonts/PaytoneOne-Regular.ttf);
+}
+
 html, body {
-/*    font-size: 62.5%; sets the base font-size(rem) to 10px so .1rem = 1px*/ 
+    font-size: 62.5%; /* sets the base font-size(rem) to 10px so .1rem = 1px*/ 
+    font-family:'PytoneOne',sans-serif;
     margin: 0; 
     padding: 0;
     box-sizing: border-box;
@@ -9,18 +20,19 @@ body {
     background-color: aqua;
     display: grid;
     height: 100vh;
+    font-size: 2rem;
 }
 
 main {
     display: grid;
     align-self: center;
-    grid-gap: 1rem;
+    grid-gap: .5rem;
     justify-content: center;
 }
 
 header {
     display: grid;
-    grid-template-columns: min(100px) auto;
+    grid-template-columns: min(10rem) auto;
     padding: 0  
 }
 
@@ -30,7 +42,34 @@ header {
 }
 
 h1 {
+    font-family:'propaganda',sans-serif;
+    font-size: 5rem;
     margin: 0;
+    padding: 0;
     align-self: center;    
+    text-align: center;
+}
+
+/* Quiz Container Style */
+
+.quiz_container {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px #fff9e6 solid;
+    outline: 1px solid #fff9e6;
+    outline-offset: -6px;
+    max-width: 80%;
+    width: 100%;
+    justify-self: center;
+    align-self: center;
+    padding: 10px;
+}
+
+.info_bar {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: center;
     text-align: center;
 }
