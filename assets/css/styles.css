@@ -8,6 +8,7 @@ html, body {
 body {
     background-color: aqua;
     display: grid;
+    height: 100vh;
 }
 
 main {
@@ -19,6 +20,17 @@ main {
 
 header {
     display: grid;
-    grid-template-columns: min(150px) auto;
+    grid-template-columns: min(100px) auto;
     padding: 0  
+}
+
+.commie_logo {
+    justify-self: center;
+    align-self: center;
+}
+
+h1 {
+    margin: 0;
+    align-self: center;    
+    text-align: center;
 }
