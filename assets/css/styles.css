@@ -26,13 +26,13 @@ body {
 main {
     display: grid;
     align-self: center;
-    grid-gap: 1rem;
+    grid-gap: .5rem;
     justify-content: center;
 }
 
 header {
     display: grid;
-    grid-template-columns: min(100px) auto;
+    grid-template-columns: min(10rem) auto;
     padding: 0  
 }
 
@@ -43,15 +43,16 @@ header {
 
 h1 {
     font-family:'propaganda',sans-serif;
-    font-size: 2rem;
+    font-size: 5rem;
     margin: 0;
+    padding: 0;
     align-self: center;    
     text-align: center;
 }
 
 /* Quiz Container Style */
 
-.quiz-container {
+.quiz_container {
     background-color: rgba(0, 0, 0, 0.8);
     border: 2px #fff9e6 solid;
     outline: 1px solid #fff9e6;
