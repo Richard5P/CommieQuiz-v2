@@ -36,7 +36,7 @@ header {
     padding: 0  
 }
 
-.commie_logo {
+.commie-logo {
     justify-self: center;
     align-self: center;
 }
@@ -52,7 +52,7 @@ h1 {
 
 /* Quiz Container Style */
 
-.quiz_container {
+.quiz-container {
     background-color: rgba(0, 0, 0, 0.8);
     border: 2px #fff9e6 solid;
     outline: 1px solid #fff9e6;
@@ -61,10 +61,10 @@ h1 {
     width: 100%;
     justify-self: center;
     align-self: center;
-    padding: 10px;
+    padding: .1rem;
 }
 
-.info_bar {
+.info-bar {
     display: grid;
     width: 100%;
     grid-template-columns: repeat(4, 1fr);
@@ -72,4 +72,23 @@ h1 {
     justify-items: center;
     align-items: center;
     text-align: center;
+}
+
+/* Panel Area (Quiz container) and Panels */
+.panel-area {
+    border: .02rem solid black;
+    max-width: 80%;
+    width: 100%;
+    justify-self: center;
+    align-self: center;
+    padding: 1rem;  
+}
+
+.panel-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    margin-top: 1rem
 }

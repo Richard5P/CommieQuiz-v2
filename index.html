@@ -1,59 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!--links for favicon.ico-->
-<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <!--links for favicon.ico-->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
 
- <!--script for font awesome icons above external styles.css link so styles.css styles take precedence-->
-    <script src="https://kit.fontawesome.com/b471b308cb.js" crossorigin="anonymous"></script> 
+    <!--script for font awesome icons above external styles.css link so styles.css styles take precedence-->
+    <script src="https://kit.fontawesome.com/b471b308cb.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/styles.css">
 
     <title>Commie Quiz</title>
-    
+
 </head>
+
 <body>
     <main>
-        <header> <!--Logo and Title-->
-            <img class=".commie_logo" src="assets/images/communism_spectre.jpg" 
+        <header>
+            <!--Logo and Title-->
+            <img class=".commie-logo" src="assets/images/communism_spectre.jpg"
                 alt="Hammer and Sickle inside red Russion star" height="50rem">
             <h1>Commie Quiz</h1>
         </header>
 
-        <section class=".quiz_container"> <!-- Quiz container - the game display area -->
-            <div> <!-- Panel container -->
-                <div> <!-- One for each panel that will be hidden and displayed-->
-                    <div> <!--Info Bar Grid - number of items can be different for each panel-->
-                          <div> <!-- One for each control: Home, Sound, Timer, Score  -->
-                            <!-- Control icon item-->
-                            <div class="info_bar">
-                                <div>
-                                    <i class="fa-solid fa-house"></i>
-                                </div>
-                                <div class="audio-icon-button">
-                                    <i class="fa-solid fa-volume-xmark"></i>
-                                    <i class="fa-solid fa-volume-high"></i>
-                                </div>
-                            </div>
-                          </div> 
-                    </div>
-
-                    <div> <!-- panel content -->
-                        <!-- game panel - one for each panel (to be hidden and displayed) -->
-                        Display panel
+        <section class=".panel-area">
+            <!-- Quiz container - the game display area -->
+            <div>
+                <!--Info Bar Grid - number of items can be different for each panel-->
+                <div>
+                    <!-- One for each control: Home, Sound, Timer, Score  -->
+                    <!-- Control icon item-->
+                    <div class="info-bar">
+                        <div>
+                            <i class="fa-solid fa-house"></i>
+                        </div>
+                        <div class="audio-icon-button">
+                            <i class="fa-solid fa-volume-xmark"></i>
+                            <i class="fa-solid fa-volume-high"></i>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <div class="panel-container">
+                <!-- game panel - one for each panel (to be hidden and displayed) -->
+                <!-- Display panel -->
 
+                <!-- Rules Panel-->
+                <div>
+                    <h2 class="hidden">Game Rules</h2>
+                    <label for="game-rules">
+                        <details>
+                            <summary>
+                                Rules of the game
+                            </summary>
+                            As a non-competitive socialist game, the rules have been designed for you to challenge
+                            yourself
+                            and
+                            provide you with an educational experience that you will share with your friends. After
+                            all,
+                            cooperation rather than competition is what distinguishes Communism from other
+                            ideologies.
+                        </details>
+                    </label>
+                    <ul id="game-rules">
+                        <li>Each game runs for a maximum of 2 minutes.</li>
+                        <li>Users can select 3 different challenges to alter the maximum response time for each
+                            question.
+                        </li>
+                        <li>
+                            <ul>
+                                <li>Comrade - 20s interval (max 6 questions).</li>
+                                <li>Vanguard - 15s interval (max 8 questions).</li>
+                                <li>Intelligentsia - 10s interval (max 12 questions).</li>
+                            </ul>
+                        </li>
+                        <li>Each correct answer will add a red star the user's score.</li>
+                        <li>The final score is calculated as a percentage based on the number of correct answer
+                            divided by
+                            the
+                            maximum questions for the game level.</li>
+                    </ul>
+                </div>
+            </div>
         </section>
     </main>
 
     <!-- JavaScript References-->
-    <script src="assets/js/script.js"></script>   
+    <script src="assets/js/script.js"></script>
 </body>
+
 </html>
