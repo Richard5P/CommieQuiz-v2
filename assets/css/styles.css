@@ -76,7 +76,7 @@ h1 {
 
 /* Panel Area (Quiz container) and Panels */
 .panel-area {
-    border: .02rem solid black;
+    border: .02rem solid rgba(128, 0, 0,0.8);
     max-width: 80%;
     width: 100%;
     justify-self: center;
@@ -89,6 +89,5 @@ h1 {
     grid-template-columns: 1fr;
     justify-items: center;
     align-items: center;
-    margin-bottom: 2rem;
-    margin-top: 1rem
+    padding: 2rem 2rem;
 }
