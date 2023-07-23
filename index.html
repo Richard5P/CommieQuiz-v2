@@ -23,11 +23,11 @@
         <header>
             <!--Logo and Title-->
             <img class=".commie-logo" src="assets/images/communism_spectre.jpg"
-                alt="Hammer and Sickle inside red Russion star" height="50rem">
+                alt="Hammer and Sickle inside red Russion star" height="60rem">
             <h1>Commie Quiz</h1>
         </header>
 
-        <section class=".panel-area">
+        <section class="panel-area">
             <!-- Quiz container - the game display area -->
             <div>
                 <!--Info Bar Grid - number of items can be different for each panel-->
@@ -42,13 +42,35 @@
                             <i class="fa-solid fa-volume-xmark"></i>
                             <i class="fa-solid fa-volume-high"></i>
                         </div>
+                        <div class="timer-icon">
+                            <i class="fa-sharp fa-solid fa-stopwatch"></i>
+                        </div>
+                        <div class="score-icon">
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="panel-container">
-                <!-- game panel - one for each panel (to be hidden and displayed) -->
-                <!-- Display panel -->
+                <!-- game panels - one for each panel (to be hidden and displayed) -->
+
+                <!-- Quiz panel -->
+                <div id="quiz-panel" class="hidden">
+                    <h2 class="hidden">Quiz Questions</h2>
+                    <div>
+                            <spam id="quest-count">1/</spam>
+                            <span id="quest-total">12</span>
+                    </div>
+
+                    <div class="quiz-questions">
+                        <button id="btn-answer-1" class="btn-answer"></button>
+                        <button id="btn-answer-2" class="btn-answer"></button>
+                        <button id="btn-answer-3" class="btn-answer"></button>
+                        <button id="btn-answer-4" class="btn-answer"></button>
+                    </div>
+                    <button id="btn-next">Next</button>
+                </div>
 
                 <!-- Rules Panel-->
                 <div>
