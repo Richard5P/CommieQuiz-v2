@@ -1,15 +1,15 @@
 @font-face {
     font-family:'propaganda';
     src: url(../fonts/propaganda.ttf);
-    font-weight: bold;
+    font-size: 62.5%; /* sets the base font-size(rem) to 10px so .1rem = 1px*/ 
 }
 @font-face {
     font-family: 'PytoneOne';
     src: url(../fonts/PaytoneOne-Regular.ttf);
+    font-size: 62.5%; /* sets the base font-size(rem) to 10px so .1rem = 1px*/ 
 }
 
 html, body {
-    font-size: 62.5%; /* sets the base font-size(rem) to 10px so .1rem = 1px*/ 
     font-family:'PytoneOne',sans-serif;
     margin: 0; 
     padding: 0;
@@ -20,7 +20,7 @@ body {
     background-color: aqua;
     display: grid;
     height: 100vh;
-    font-size: 2rem;
+    font-size: 1.2rem;
 }
 
 main {
@@ -43,21 +43,35 @@ header {
 
 h1 {
     font-family:'propaganda',sans-serif;
-    font-size: 5.5rem;
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    align-self: left;    
+    text-align: left;
+}
+
+h2 {
+    font-family:'propaganda',sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
     margin: 0;
     padding: 0;
     align-self: center;    
     text-align: center;
 }
 
-h2 {
-    font-family:'propaganda',sans-serif;
-    font-size: 4rem;
+h3 {
+    font-family:'PytoneOne',sans-serif;
+    font-size: 1.2rem;
+    font-weight: 100;
     margin: 0;
     padding: 0;
     align-self: center;    
     text-align: center;
 }
+
+
 
 /* Quiz Container Style */
 
