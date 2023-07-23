@@ -43,11 +43,20 @@ header {
 
 h1 {
     font-family:'propaganda',sans-serif;
-    font-size: 5rem;
+    font-size: 5.5rem;
     margin: 0;
     padding: 0;
     align-self: center;    
     text-align: center;
+}
+
+h2 {
+    font-family:'propaganda',sans-serif;
+    font-size: 4rem;
+    margin: 0;
+    padding: 0;
+    align-self: center;    
+    text-align: left;
 }
 
 /* Quiz Container Style */
@@ -76,7 +85,7 @@ h1 {
 
 /* Panel Area (Quiz container) and Panels */
 .panel-area {
-    border: .02rem solid rgba(128, 0, 0,0.8);
+    border: .2rem solid rgba(128, 0, 0,0.8);
     max-width: 80%;
     width: 100%;
     justify-self: center;
@@ -89,5 +98,6 @@ h1 {
     grid-template-columns: 1fr;
     justify-items: center;
     align-items: center;
-    padding: 2rem 2rem;
+    padding: 1rem 1rem;
+    background-color: darkgray;
 }
