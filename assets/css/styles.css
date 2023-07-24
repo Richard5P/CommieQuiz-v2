@@ -73,18 +73,16 @@ h3 {
 
 
 
-/* Quiz Container Style */
+/* Quiz Container Styles */
 
-.quiz-container {
-    background-color: rgba(0, 0, 0, 0.8);
-    border: 2px #fff9e6 solid;
-    outline: 1px solid #fff9e6;
-    outline-offset: -6px;
+/* Panel Area (Quiz container): Info-bar and Panels*/
+.game-area {
+    border: .2rem solid rgba(128, 0, 0,0.8);
     max-width: 80%;
     width: 100%;
     justify-self: center;
     align-self: center;
-    padding: .1rem;
+    padding: 1rem;  
 }
 
 .info-bar {
@@ -95,16 +93,6 @@ h3 {
     justify-items: center;
     align-items: center;
     text-align: center;
-}
-
-/* Panel Area (Quiz container) and Panels */
-.panel-area {
-    border: .2rem solid rgba(128, 0, 0,0.8);
-    max-width: 80%;
-    width: 100%;
-    justify-self: center;
-    align-self: center;
-    padding: 1rem;  
 }
 
 .panel-container {
@@ -118,5 +106,7 @@ h3 {
 
 /* Control Styles */
 .hidden {
-    display: none;
+    visibility: hidden;
+    margin: 0;
+    padding:0;
 }
