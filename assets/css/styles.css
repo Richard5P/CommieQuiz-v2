@@ -117,6 +117,14 @@ h3 {
     margin-top: 0;
 }
 
+.welcome-buttons {
+    display: grid;
+    grid-template-columns: auto;
+    justify-items: center;
+    align-items: center;
+    padding: .2rem .2rem;
+}
+
 .quiz-answers {
     display: grid;
     grid-template-columns: auto;
