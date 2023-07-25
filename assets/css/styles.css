@@ -23,7 +23,7 @@ body {
     font-size: 1.2rem;
 }
 
-main {
+.game-container {
     display: grid;
     align-self: center;
     grid-gap: .5rem;
@@ -33,7 +33,8 @@ main {
 header {
     display: grid;
     grid-template-columns: min(10rem) auto;
-    padding: 0  
+    padding: 0; 
+    align-self: center;
 }
 
 .commie-logo {
@@ -75,7 +76,7 @@ h3 {
 
 /* Quiz Container Styles */
 
-/* Panel Area (Quiz container): Info-bar and Panels*/
+/* Game Area (Quiz container): Info-bar and Panels*/
 .game-area {
     border: .2rem solid rgba(128, 0, 0,0.8);
     max-width: 80%;
@@ -85,7 +86,7 @@ h3 {
     padding: 1rem;  
 }
 
-.info-bar {
+.info-bar-container {
     display: grid;
     width: 100%;
     grid-template-columns: repeat(4, 1fr);
@@ -106,7 +107,7 @@ h3 {
 
 /* Control Styles */
 .hidden {
-    visibility: hidden;
+    display:none;
     margin: 0;
     padding:0;
 }

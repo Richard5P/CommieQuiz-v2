@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <main>
+    <div class="game-container"> <!--the container for the entire game-->
         <header>
             <!--Logo and Title-->
             <img class=".commie-logo" src="assets/images/communism_spectre.jpg"
@@ -27,40 +27,55 @@
             <h1>Commie Quiz</h1>
         </header>
 
-        <section class="game-area">
-            <!-- Quiz container - the game display area -->
-            <div>
+        <div class="game-area">
+            <!-- the game display area (not a grid) -->
+            <!-- contains the Info Bar and Panel areas-->
+            <div class="info-bar-container"> <!--Info Bar Grid -->
                 <!--Info Bar Grid - number of items can be different for each panel-->
+                <!-- One for each control: Home, Sound, Timer, Score  -->
+                <!-- Control icon item-->
                 <div>
-                    <!-- One for each control: Home, Sound, Timer, Score  -->
-                    <!-- Control icon item-->
-                    <div class="info-bar">
-                        <div>
-                            <i class="fa-solid fa-house"></i>
-                        </div>
-                        <div class="audio-icon-button">
-                            <i class="fa-solid fa-volume-xmark"></i>
-                            <i class="fa-solid fa-volume-high"></i>
-                        </div>
-                        <div class="timer-icon">
-                            <i class="fa-sharp fa-solid fa-stopwatch"></i>
-                        </div>
-                        <div class="score-icon">
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                        </div>
-                    </div>
+                    <i class="fa-solid fa-house"></i>
                 </div>
-            </div>
+                <div class="audio-icon-button">
+                    <i class="fa-solid fa-volume-xmark"></i>
+                    <i class="fa-solid fa-volume-high"></i>
+                </div>
+                <div class="timer-icon">
+                    <i class="fa-sharp fa-solid fa-stopwatch"></i>
+                </div>
+                <div class="score-icon">
+                    <i class="fa-sharp fa-solid fa-star"></i>
+                </div>
+            </div>  <!--Info Bar Grid -->
+
 
             <div class="panel-container">
                 <!-- game panels - one for each panel (to be hidden and displayed) -->
+
+                <section id="welcome-panel" class="welcome panel">
+                    <h2 class="welcome"> Welcome to the Commie Quiz!</h2>
+                    <p class="welcome">A fun game where you can test your current knowledge about Communism and find
+                        resources
+                        for
+                        expanding on it.</p>
+                </section>
+    
+                <section id="menu-panel" class="hidden panel">
+                    <h2 class="hidden">Menu</h2>
+                    <button id="btn-welcome" class="btn-menu">Home</button>
+                    <button id="btn-quiz" class="btn-menu">Quiz</button>
+                    <button id="btn-rules" class="btn-menu">Rules</button>
+                    <button id="btn-scores" class="btn-menu">Scores</button>
+                </section>
+
 
                 <!-- Quiz panel -->
                 <div id="quiz-panel" class="hidden">
                     <h2 class="hidden">Quiz Questions</h2>
                     <div>
-                            <spam id="quest-count">1/</spam>
-                            <span id="quest-total">12</span>
+                        <spam id="quest-count">1/</spam>
+                        <span id="quest-total">12</span>
                     </div>
 
                     <div class="quiz-questions">
