@@ -106,8 +106,21 @@ h3 {
 }
 
 /* Control Styles */
+/*
 .hidden {
     display:none;
     margin: 0;
     padding:0;
+}
+*/
+#game-rules {
+    margin-top: 0;
+}
+
+.quiz-answers {
+    display: grid;
+    grid-template-columns: auto;
+    justify-items: center;
+    align-items: center;
+    padding: .2rem .2rem;
 }

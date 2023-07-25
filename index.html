@@ -19,7 +19,8 @@
 </head>
 
 <body>
-    <div class="game-container"> <!--the container for the entire game-->
+    <div class="game-container">
+        <!--the container for the entire game-->
         <header>
             <!--Logo and Title-->
             <img class=".commie-logo" src="assets/images/communism_spectre.jpg"
@@ -27,10 +28,11 @@
             <h1>Commie Quiz</h1>
         </header>
 
-        <div class="game-area">
+        <main class="game-area">
             <!-- the game display area (not a grid) -->
             <!-- contains the Info Bar and Panel areas-->
-            <div class="info-bar-container"> <!--Info Bar Grid -->
+            <section class="info-bar-container">
+                <!--Info Bar Grid -->
                 <!--Info Bar Grid - number of items can be different for each panel-->
                 <!-- One for each control: Home, Sound, Timer, Score  -->
                 <!-- Control icon item-->
@@ -47,63 +49,51 @@
                 <div class="score-icon">
                     <i class="fa-sharp fa-solid fa-star"></i>
                 </div>
-            </div>  <!--Info Bar Grid -->
+            </section>
+            <!--Info Bar Grid -->
 
 
             <div class="panel-container">
                 <!-- game panels - one for each panel (to be hidden and displayed) -->
 
+                <!-- Welcome panel -->
                 <section id="welcome-panel" class="welcome panel">
                     <h2 class="welcome"> Welcome to the Commie Quiz!</h2>
                     <p class="welcome">A fun game where you can test your current knowledge about Communism and find
                         resources
                         for
                         expanding on it.</p>
-                </section>
-    
-                <section id="menu-panel" class="hidden panel">
-                    <h2 class="hidden">Menu</h2>
-                    <button id="btn-welcome" class="btn-menu">Home</button>
                     <button id="btn-quiz" class="btn-menu">Quiz</button>
                     <button id="btn-rules" class="btn-menu">Rules</button>
                     <button id="btn-scores" class="btn-menu">Scores</button>
-                </section>
+                </section> <!-- Welcome panel -->
 
 
                 <!-- Quiz panel -->
-                <div id="quiz-panel" class="hidden">
+                <section id="quiz-panel" class="hidden">
                     <h2 class="hidden">Quiz Questions</h2>
                     <div>
                         <spam id="quest-count">1/</spam>
                         <span id="quest-total">12</span>
                     </div>
 
-                    <div class="quiz-questions">
-                        <button id="btn-answer-1" class="btn-answer"></button>
-                        <button id="btn-answer-2" class="btn-answer"></button>
-                        <button id="btn-answer-3" class="btn-answer"></button>
-                        <button id="btn-answer-4" class="btn-answer"></button>
+                    <div>
+
+                    </div>
+
+                    <div class="quiz-answers">
+                        <button id="btn-answer-1" class="btn-answer">Answer 1</button>
+                        <button id="btn-answer-2" class="btn-answer">Answer 1</button>
+                        <button id="btn-answer-3" class="btn-answer">Answer 1</button>
+                        <button id="btn-answer-4" class="btn-answer">Answer 1</button>
                     </div>
                     <button id="btn-next">Next</button>
-                </div>
+                </section> <!-- Quiz panel -->
 
                 <!-- Rules Panel-->
-                <div>
+                <section class="hidden">
                     <h2>Game Rules</h2>
-                    <label for="game-rules">
-                        <details>
-                            <summary>
-                                Game Philosophy
-                            </summary>
-                            As a non-competitive socialist game, the rules have been designed for you to challenge
-                            yourself
-                            and
-                            provide you with an educational experience that you will share with your friends. After
-                            all,
-                            cooperation rather than competition is what distinguishes Communism from other
-                            ideologies.
-                        </details>
-                    </label>
+
                     <ul id="game-rules">
                         <li>Each game runs for a maximum of 2 minutes.</li>
                         <li>Users can select 3 different challenges to alter the maximum response time for each
@@ -122,10 +112,25 @@
                             the
                             maximum questions for the game level.</li>
                     </ul>
-                </div>
+                    <label for="game-rules">
+                        <details>
+                            <summary>
+                                Game Philosophy
+                            </summary>
+                            As a non-competitive socialist game, the rules have been designed for you to challenge
+                            yourself
+                            and
+                            provide you with an educational experience that you will share with your friends. After
+                            all,
+                            cooperation rather than competition is what distinguishes Communism from other
+                            ideologies.
+                        </details>
+                    </label>
+                </section> <!-- Rules Panel-->
             </div>
-        </section>
-    </main>
+            <!--Panel Container-->
+        </main> <!-- Game Area -->
+    </div> <!-- Game Container -->
 
     <!-- JavaScript References-->
     <script src="assets/js/script.js"></script>
