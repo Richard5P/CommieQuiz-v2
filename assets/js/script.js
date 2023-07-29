@@ -2,6 +2,10 @@
 //  Navigation and Info Bar controls
 const homeInfoBarButton = document.getElementById("btn-home");
 
+const quizDisplayButton = document.getElementById("btn-quiz");
+const guideDisplayButton = document.getElementById("btn-guide");
+const scoresDisplayButton = document.getElementById("btn-scores");
+
 // Panels
 const panelArea = document.getElementById("panel-area");
 const welcomePanel = document.getElementById("welcome-panel");
@@ -10,6 +14,7 @@ const quizPanel = document.getElementById("quiz-panel");
 const resultsPanel = document.getElementById("results-panel")
 const guidePanel = document.getElementById("guide-panel");
 const scoresPanel = document.getElementById("scores-panel");
+
 
 let currentPanel = "guide-panel";
 
@@ -20,8 +25,13 @@ window.onload = function () {
 // Add event listeners
 
 document.addEventListener("DOMContentLoaded", function () {
-    // controls Area
-    homeInfoBarButton.addEventListener("click", displayHomePanel);
+    // Info Bar controls
+    homeInfoBarButton.addEventListener("click", displayWelcomePanel);
+
+    // Panel Button controls
+    quizDisplayButton.addEventListener("click", displayQuizPanel);
+    guideDisplayButton.addEventListener("click", displayGuidePanel);
+    scoresDisplayButton.addEventListener("click", displayScoresPanel);
 })
 
 // Define functions
@@ -29,24 +39,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function hidePanels() {
     // hide timers as well
-//        gameTimerDisplay.classList.add("hidden");
-//        questionTimerDisplay.classList.add("hidden");    
-    
-        let panels = document.getElementsByClassName("panel");
-        for (let i = 0; i < panels.length; i++)
-            panels[i].classList.add("hidden");
-    }
-    
-function displayHomePanel() {
-        console.log("Home Panel");
-        hidePanels();
-        welcomePanel.classList.remove("hidden");
-        currentPanel = "welcome-panel";
-    }
+    //        gameTimerDisplay.classList.add("hidden");
+    //        questionTimerDisplay.classList.add("hidden");    
+
+    let panels = document.getElementsByClassName("panel");
+    for (let i = 0; i < panels.length; i++)
+        panels[i].classList.add("hidden");
+}
+
+function displayWelcomePanel() {
+    console.log("Welcome Panel");
+    hidePanels();
+    welcomePanel.classList.remove("hidden");
+    currentPanel = "welcome-panel";
+}
+
+function displayQuizPanel() {
+    console.log("Quiz Panel");
+    hidePanels();
+    quizPanel.classList.remove("hidden");
+    currentPanel = "quiz-panel";
+}
+
+function displayScoresPanel() {
+    console.log("Scores Panel");
+    hidePanels();
+    scoresPanel.classList.remove("hidden");
+    currentPanel = "scores-panel";
+}
 
 function displayGuidePanel() {
     console.log("Guide Panel");
     hidePanels();
     guidePanel.classList.remove("hidden");
-    currentPanel = "guide-panel";    
+    currentPanel = "guide-panel";
 }
