@@ -37,7 +37,7 @@
                 <!-- One for each control: Home, Sound, Timer, Score  -->
                 <!-- Control icon item-->
                 <div>
-                    <i class="fa-solid fa-house"></i>
+                    <i id="btn-home" class="fa-solid fa-house"></i>
                 </div>
                 <div class="audio-icon-button">
                     <i class="fa-solid fa-volume-xmark"></i>
@@ -58,7 +58,7 @@
                 <!-- game panels - one for each panel (to be hidden and displayed) -->
 
                 <!-- Welcome panel -->
-                <section id="welcome-panel" class="welcome panel">
+                <section id="welcome-panel" class="welcome panel hidden">
                     <h2 class="welcome"> Welcome to the Commie Quiz!</h2>
                     <p class="welcome">A fun game where you can test your current knowledge about Communism and find
                         resources
@@ -120,7 +120,7 @@
                 </section> <!-- Results Panel -->
 
                 <!-- Guide Panel -->
-                <section class="hidden">
+                <section id="guide-panel">
                     <h2>Game Guide</h2>
 
                     <ul id="game-rules">
