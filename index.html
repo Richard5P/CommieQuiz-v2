@@ -66,10 +66,23 @@
                         expanding on it.</p>
                     <div class="welcome-buttons">
                         <button id="btn-quiz" class="btn-menu">Quiz</button>
-                        <button id="btn-rules" class="btn-menu">Rules</button>
+                        <button id="btn-guide" class="btn-menu">Guide</button>
                         <button id="btn-scores" class="btn-menu">Scores</button>
                     </div>
                 </section> <!-- Welcome panel -->
+
+                <!-- Record User panel -->
+                <section id="rec-user-panel" class="hidden">
+                    <h2>Record User Scores</h2>
+                    <p>If you'd like to have your score recorded and published</p>
+                    <!-- Input without form -->
+                    <label for="username">
+                        "Please enter a user name"
+                    </label>
+                    <input type="text" id="username" value="Guest">
+                    <p>Otherwise, proceed as "Guest"</p>
+                    <button onclick="submitUsername()">Select Difficulty Level</button>
+                </section> <!-- Record User panel-->
 
 
                 <!-- Quiz panel -->
@@ -82,7 +95,8 @@
                         </h3>
                     </div>
 
-                    <div> <!--Quiz question-->
+                    <div>
+                        <!--Quiz question-->
                         <p>Quiz Question?</p>
                     </div>
 
@@ -95,9 +109,19 @@
                     <button id="btn-next">Next</button>
                 </section> <!-- Quiz panel -->
 
-                <!-- Rules Panel-->
+                <!-- Results Panel -->
+                <section id="results-panel" class="hidden">
+                    <h2>Results</h2>
+                    <h3>Well Done / Good Try</h3>
+                    <p>As a Comerade, out of a possible <span id="possible-score">12</span> questions, 
+                        you answered <span id="correct-score">12</span> questions correctly.</p>
+                    <p>Based on your score of <span id="score">50</span>, you might find the following of interest:</p>
+                    <ul id="commie-list"></ul>
+                </section> <!-- Results Panel -->
+
+                <!-- Guide Panel -->
                 <section class="hidden">
-                    <h2>Game Rules</h2>
+                    <h2>Game Guide</h2>
 
                     <ul id="game-rules">
                         <li>Each game runs for a maximum of 2 minutes.</li>
@@ -131,7 +155,22 @@
                             ideologies.
                         </details>
                     </label>
-                </section> <!-- Rules Panel-->
+                </section> <!-- Rules Panel -->
+
+                <!-- High Scores Panel -->
+                <section id="high-scores-panel" class="hidden">
+                    <h2>High Scores</h2>
+                    <table id="hs-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Highest Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hs-tbody"></tbody>
+                    </table>
+                </section> <!-- High Scores Panel -->
+
             </div>
             <!--Panel Container-->
         </main> <!-- Game Area -->
