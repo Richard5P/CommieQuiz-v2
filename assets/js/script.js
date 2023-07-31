@@ -85,13 +85,14 @@ function displayGuidePanel() {
 
 // Quiz Functions 
 function loadQuizQuestions() {
-    console.log("load Quiz Questions");
+    console.log("load "+ quizQuestions.length + " Quiz Questions");
     for (let currentQuestion of quizQuestions) {
-    quizQuestion.innerText = currentQuestion.question;
-    quizAnswer1.innerText = currentQuestion.a;
-    quizAnswer2.innerText = currentQuestion.b;
-    quizAnswer3.innerText = currentQuestion.c;
-    quizAnswer4.innerText = currentQuestion.d;
-    quizCorrectAnswer = currentQuestion.answer;
-    console.log("correct Answer: " + quizCorrectAnswer) }
+        quizQuestion.innerText = currentQuestion.question;
+        quizAnswer1.innerText = currentQuestion.a;
+        quizAnswer2.innerText = currentQuestion.b;
+        quizAnswer3.innerText = currentQuestion.c;
+        quizAnswer4.innerText = currentQuestion.d;
+        quizCorrectAnswer = currentQuestion.answer;
+        console.log("correct Answer: " + quizCorrectAnswer)
+    }
 }
