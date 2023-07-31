@@ -19,7 +19,7 @@ const scoresPanel = document.getElementById("scores-panel");
 let currentPanel = "guide-panel";
 
 window.onload = function () {
-    displayGuidePanel();
+    displayWelcomePanel();
 };
 
 // Add event listeners
@@ -56,8 +56,8 @@ function displayWelcomePanel() {
 
 function displayQuizPanel() {
     console.log("Quiz Panel");
-    hidePanels();
     loadQuizQuestions();
+    hidePanels();
     quizPanel.classList.remove("hidden");
     currentPanel = "quiz-panel";
 }
