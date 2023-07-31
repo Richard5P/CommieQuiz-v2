@@ -57,6 +57,7 @@ function displayWelcomePanel() {
 function displayQuizPanel() {
     console.log("Quiz Panel");
     hidePanels();
+    loadQuizQuestions();
     quizPanel.classList.remove("hidden");
     currentPanel = "quiz-panel";
 }
@@ -73,4 +74,16 @@ function displayGuidePanel() {
     hidePanels();
     guidePanel.classList.remove("hidden");
     currentPanel = "guide-panel";
+}
+
+// Quiz Functions 
+function loadQuizQuestions() {
+    console.log("load Quiz Questions");
+    quizQuestion.innerText = currentQuestion.question;
+    quizAnswer1.innerText = currentQuestion.a;
+    quizAnswer2.innerText = currentQuestion.b;
+    quizAnswer3.innerText = currentQuestion.c;
+    quizAnswer4.innerText = currentQuestion.d;
+    quizCorrectAnswer = currentQuestion.answer;
+    console.log("correct Answer: " + quizCorrectAnswer)
 }
