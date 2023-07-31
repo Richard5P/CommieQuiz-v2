@@ -15,6 +15,13 @@ const resultsPanel = document.getElementById("results-panel")
 const guidePanel = document.getElementById("guide-panel");
 const scoresPanel = document.getElementById("scores-panel");
 
+// Quiz Buttons
+const quizQuestion = document.getElementById("quiz-question");
+const quizAnswer1 = document.getElementById("btn-answer-1");
+const quizAnswer2 = document.getElementById("btn-answer-2");
+const quizAnswer3 = document.getElementById("btn-answer-3");
+const quizAnswer4 = document.getElementById("btn-answer-4");
+const nextQuestion = document.getElementById("btn-next");
 
 let currentPanel = "guide-panel";
 
@@ -79,11 +86,12 @@ function displayGuidePanel() {
 // Quiz Functions 
 function loadQuizQuestions() {
     console.log("load Quiz Questions");
+    for (let currentQuestion of quizQuestions) {
     quizQuestion.innerText = currentQuestion.question;
     quizAnswer1.innerText = currentQuestion.a;
     quizAnswer2.innerText = currentQuestion.b;
     quizAnswer3.innerText = currentQuestion.c;
     quizAnswer4.innerText = currentQuestion.d;
     quizCorrectAnswer = currentQuestion.answer;
-    console.log("correct Answer: " + quizCorrectAnswer)
+    console.log("correct Answer: " + quizCorrectAnswer) }
 }
