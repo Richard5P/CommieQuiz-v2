@@ -10,10 +10,23 @@ const scoresDisplayButton = document.getElementById("btn-scores");
 const panelArea = document.getElementById("panel-area");
 const welcomePanel = document.getElementById("welcome-panel");
 const recUserPanel = document.getElementById("rec-user-panel");
+const difficultyPanel = document.getElementById("select-difficult-panel");
+const startQuizPanel = document.getElementById("start-quiz-panel");
 const quizPanel = document.getElementById("quiz-panel");
 const resultsPanel = document.getElementById("results-panel")
 const guidePanel = document.getElementById("guide-panel");
 const scoresPanel = document.getElementById("scores-panel");
+
+// Panel Buttons
+const displayQuiz = document.getElementById("btn-quiz");
+const displayGuide = document.getElementById("btn-quide");
+const displayScores = document.getElementById("btn-scores");
+
+const quizLevel_1 = document.getElementById("btn-comrade");
+const quizLevel_2 = document.getElementById("btn-vanguarde");
+const quizLevel_3 = document.getElementById("btn-intelligencia");
+
+const quizStart = document.getElementById("btn-start");
 
 // Quiz Buttons
 const quizQuestion = document.getElementById("quiz-question");
