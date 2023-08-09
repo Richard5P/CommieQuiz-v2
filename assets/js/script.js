@@ -38,10 +38,6 @@ const nextQuestion = document.getElementById("btn-next");
 
 let currentPanel = "guide-panel";
 
-window.onload = function () {
-    displayWelcomePanel();
-};
-
 // Add event listeners
 
 document.addEventListener("DOMContentLoaded", function () {
