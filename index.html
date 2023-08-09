@@ -55,7 +55,7 @@
                 <!-- game panels - one for each panel (to be hidden and displayed) -->
 
                 <!-- Welcome panel -->
-                <section id="welcome-panel" class="panel hidden">
+                <section id="welcome-panel" class="panel">
                     <h2 class="welcome"> Welcome to the Commie Quiz!</h2>
                     <p class="welcome">A fun game where you can test your current knowledge about Communism and find
                         resources
@@ -80,6 +80,24 @@
                     <p>Otherwise, proceed as "Guest"</p>
                     <button onclick="submitUsername()">Select Difficulty Level</button>
                 </section> <!-- Record User panel-->
+
+                <!-- Select Difficulty panel-->
+                <section id="select-difficult-panel" class="panel hidden">
+                    <h2>Select Difficulty</h2>
+                    <div class="difficulty-container">
+                        <button id="btn-comrade"></button>
+                        <button id="btn-vanguarde"></button>
+                        <button id="btn-intelligencia"></button>
+                    </div>
+                </section>
+
+                <!-- Start Quiz Panel -->
+                <section id="start-quiz-panel" class="panel hidden">
+                    <h2>Start Quiz?</h2>
+                    <div>
+                        <button id="btn-start">Yes</button>
+                    </div>
+                </section>
 
                 <!-- Quiz panel -->
                 <section id="quiz-panel" class="panel hidden">
@@ -116,7 +134,7 @@
                 </section> <!-- Results Panel -->
 
                 <!-- Guide Panel -->
-                <section id="guide-panel" class="panel">
+                <section id="guide-panel" class="panel hidden">
                     <h2>Game Guide</h2>
 
                     <ul id="game-rules">
@@ -172,11 +190,11 @@
         </main> <!-- Game Area -->
     </div> <!-- Game Container -->
 
+    <!-- JavaScript Questions Script -->
+    <script src="assets/js/dumi-questions.js"></script>
+    
     <!-- JavaScript References-->
     <script src="assets/js/script.js"></script>
-
-    <!-- JavaScript Questions Script -->
-    <script src="assets/js/questions.js"></script>
 
     <!-- font awsome icons-->
     <script src="https://kit.fontawesome.com/b471b308cb.js" crossorigin="anonymous"></script>
