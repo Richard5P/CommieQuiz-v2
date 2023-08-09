@@ -114,18 +114,20 @@ function nextQuestion() {
       displayQandA(iQr);
       questionIndex += 1;
     } else {
-      btnNext.style.display = "none";
+        console.log("before setTime");
+        setTimeout(function() {
+          displayScoresPanel();
+          iQ = 0;
+        }, 2000);
     }
   }
   
 function displayQandA(iQr) {
     // here goes the if statement to make the start quiz button dissapear
-    if (btnStart.style.display !== "none"){
+   /* if (btnStart.style.display !== "none"){
       console.log ("hiding display button");
       btnStart.style.display = "none";
-    }
-    console.log("DisplayQandA Qno: " + iQr);
-    console.log("qq : " +  quizQuestions[iQr].q);
+    } */
     quizQuestion.innerText = quizQuestions[iQr].q;
     quizAnswer1.innerText = quizQuestions[iQr].a;
     quizAnswer2.innerText = quizQuestions[iQr].b;
