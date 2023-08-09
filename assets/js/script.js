@@ -26,7 +26,9 @@ const quizLevel_1 = document.getElementById("btn-comrade");
 const quizLevel_2 = document.getElementById("btn-vanguarde");
 const quizLevel_3 = document.getElementById("btn-intelligencia");
 
-const quizStart = document.getElementById("btn-start");
+//Quiz Navigation Buttons
+const btnStart = document.getElementById("btn-start");
+const btnNext = document.getElementById("btn-next");
 
 // Quiz Buttons
 const quizQuestion = document.getElementById("quiz-question");
@@ -34,9 +36,10 @@ const quizAnswer1 = document.getElementById("btn-answer-1");
 const quizAnswer2 = document.getElementById("btn-answer-2");
 const quizAnswer3 = document.getElementById("btn-answer-3");
 const quizAnswer4 = document.getElementById("btn-answer-4");
-const nextQuestion = document.getElementById("btn-next");
 
+// Global Variables - set start up default values
 let currentPanel = "guide-panel";
+let questionIndex = 0;
 
 // Add event listeners
 
@@ -48,6 +51,10 @@ document.addEventListener("DOMContentLoaded", function () {
     quizDisplayButton.addEventListener("click", displayQuizPanel);
     guideDisplayButton.addEventListener("click", displayGuidePanel);
     scoresDisplayButton.addEventListener("click", displayScoresPanel);
+
+    // Quiz controls
+    btnStart.addEventListener("click", startQuiz);
+    btnNext.addEventListener("click", nextQuestion);
 })
 
 // Define functions
@@ -72,7 +79,6 @@ function displayWelcomePanel() {
 
 function displayQuizPanel() {
     console.log("Quiz Panel");
-    loadQuizQuestions();
     hidePanels();
     quizPanel.classList.remove("hidden");
     currentPanel = "quiz-panel";
@@ -92,16 +98,45 @@ function displayGuidePanel() {
     currentPanel = "guide-panel";
 }
 
-// Quiz Functions 
-function loadQuizQuestions() {
-    console.log("load "+ quizQuestions.length + " Quiz Questions");
-    for (let currentQuestion of quizQuestions) {
-        quizQuestion.innerText = currentQuestion.question;
-        quizAnswer1.innerText = currentQuestion.a;
-        quizAnswer2.innerText = currentQuestion.b;
-        quizAnswer3.innerText = currentQuestion.c;
-        quizAnswer4.innerText = currentQuestion.d;
-        quizCorrectAnswer = currentQuestion.answer;
-        console.log("correct Answer: " + quizCorrectAnswer)
-    }
+// Quiz Navigation Functions
+function startQuiz() {
+    console.log("Start Quiz");
+    questionIndex = 0; 
+    displayQuizPanel();
+    btnNext.style.display = "block";
+    nextQuestion();
 }
+
+// Quiz Functions 
+function nextQuestion() {
+    if (questionIndex < quizQuestions.length) {
+      let iQr = getRandomInt(0, 15);
+      displayQandA(iQr);
+      questionIndex += 1;
+    } else {
+      btnNext.style.display = "none";
+    }
+  }
+  
+function displayQandA(iQr) {
+    // here goes the if statement to make the start quiz button dissapear
+    if (btnStart.style.display !== "none"){
+      console.log ("hiding display button");
+      btnStart.style.display = "none";
+    }
+    console.log("DisplayQandA Qno: " + iQr);
+    console.log("qq : " +  quizQuestions[iQr].q);
+    quizQuestion.innerText = quizQuestions[iQr].q;
+    quizAnswer1.innerText = quizQuestions[iQr].a;
+    quizAnswer2.innerText = quizQuestions[iQr].b;
+    quizAnswer3.innerText = quizQuestions[iQr].a;
+    quizAnswer4.innerText = quizQuestions[iQr].b;
+  }
+  
+  // Random integer between min (inclusive) and max (inclusive)
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  
