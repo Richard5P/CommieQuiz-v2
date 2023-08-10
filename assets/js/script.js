@@ -143,10 +143,8 @@ function getUniqueRandomInt(min, max) {
   }
   while (qUsedIndices.includes(iQu));
   qUsedIndices.push(iQu);
-  console.log ("Unique Array" + qUsedIndices);
   return iQu;
 }
-  
   // Random integer between min (inclusive) and max (inclusive)
 function getRandomInt(min, max) {
     min = Math.ceil(min);
