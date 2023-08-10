@@ -40,6 +40,7 @@ const quizAnswer4 = document.getElementById("btn-answer-4");
 // Global Variables - set start up default values
 let currentPanel = "guide-panel";
 let questionIndex = 0;
+let qUsedIndices = []; // Array of questions used
 
 // Add event listeners
 
@@ -110,7 +111,7 @@ function startQuiz() {
 // Quiz Functions 
 function nextQuestion() {
     if (questionIndex < quizQuestions.length) {
-      let iQr = getRandomInt(0, 15);
+      let iQr = getUniqueRandomInt(0, quizQuestions.length - 1);
       displayQandA(iQr);
       questionIndex += 1;
     } else {
@@ -134,6 +135,17 @@ function displayQandA(iQr) {
     quizAnswer3.innerText = quizQuestions[iQr].a;
     quizAnswer4.innerText = quizQuestions[iQr].b;
   }
+
+  // Maintain Array of used questions to return unique no.
+function getUniqueRandomInt(min, max) {
+  do {
+     iQu = getRandomInt (min, max);
+  }
+  while (qUsedIndices.includes(iQu));
+  qUsedIndices.push(iQu);
+  console.log ("Unique Array" + qUsedIndices);
+  return iQu;
+}
   
   // Random integer between min (inclusive) and max (inclusive)
 function getRandomInt(min, max) {
