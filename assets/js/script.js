@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
     homeInfoBarButton.addEventListener("click", displayWelcomePanel);
 
     // Panel Button controls
-    quizDisplayButton.addEventListener("click", displayQuizPanel);
+    quizDisplayButton.addEventListener("click", startQuiz);
     guideDisplayButton.addEventListener("click", displayGuidePanel);
     scoresDisplayButton.addEventListener("click", displayScoresPanel);
 
