@@ -1,4 +1,5 @@
 //Variables - initialise targeted elements
+
 //  Navigation and Info Bar controls
 const homeInfoBarButton = document.getElementById("btn-home");
 
@@ -37,10 +38,19 @@ const quizAnswer2 = document.getElementById("btn-answer-2");
 const quizAnswer3 = document.getElementById("btn-answer-3");
 const quizAnswer4 = document.getElementById("btn-answer-4");
 
+// Target Elements - Timer
+const quizTimer = document.getElementById("timer-quiz");
+const questionTimer = document.getElementById("timer-question");
+
 // Global Variables - set start up default values
 let currentPanel = "guide-panel";
 let questionIndex = 0;
 let qUsedIndices = []; // Array of questions used
+
+ //   Quiz Time is always 2 minutes so can fix time values 
+let quizTime = 120; // 2 minute counter
+let timeQuestion = 5; // this will be set by selectDifficulty
+
 
 // Add event listeners
 
@@ -105,6 +115,8 @@ function startQuiz() {
     questionIndex = 0; 
     displayQuizPanel();
     btnNext.style.display = "block";
+    quizTime = 120;
+    updateQuizTimer();
     nextQuestion();
 }
 
@@ -115,7 +127,7 @@ function nextQuestion() {
       displayQandA(iQr);
       questionIndex += 1;
     } else {
-        console.log("before setTime");
+        console.log("finished Questions, clear QuizTimer");
         setTimeout(function() {
           displayScoresPanel();
           iQ = 0;
@@ -150,5 +162,19 @@ function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  // Timer functions
+
+
+  let quizInterval =  setInterval(updateQuizTimer, 1000); // set 1 second loop for function updateQuizTimer
+  
+  function updateQuizTimer() {
+    const minutes = Math.floor(quizTime / 60); // set the minute display of the remaining seconds
+    let seconds = quizTime % 60; // get the seconds of the remaining seconds after the minutes
+    seconds = seconds < 10 ? "0"+seconds : seconds; // format seconds for output
+    console.log("min " + minutes +" sec " + seconds);
+    quizTimer.innerHTML = "${minutes}:${seconds}"; // write to display
+    quizTime--; //decrement countdown
   }
   
