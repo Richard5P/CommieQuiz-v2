@@ -49,7 +49,7 @@ let qUsedIndices = []; // Array of questions used
 
  //   Quiz Time is always 2 minutes so can fix time values 
 let quizTime = 120; // 2 minute counter
-let timeQuestion = 5; // this will be set by selectDifficulty
+let questionTime = 10; // this will be set by selectDifficulty in seconds
 
 
 // Add event listeners
@@ -126,6 +126,10 @@ function nextQuestion() {
       let iQr = getUniqueRandomInt(0, quizQuestions.length - 1);
       displayQandA(iQr);
       questionIndex += 1;
+ /*     if (questionIndex > 0){
+        stopQuestionTimer();
+      }
+      startQuestionTimer(); */
     } else {
         console.log("finished Questions, clear QuizTimer");
         stopQuizTimer();
@@ -164,21 +168,41 @@ function getRandomInt(min, max) {
   // Timer functions
 
   function startQuizTimer(){
-    console.log ("Start Interval");
+    console.log ("Start Quiz Interval");
+    quizTime = 120; // set the total time for iterance
     quizInterval =  setInterval(updateQuizTimer, 1000); // set 1 second loop for function updateQuizTimer
   }
 
   function stopQuizTimer(){
     clearInterval(quizInterval);
-    console.log ("Stop Interval");
+    console.log ("Stop Quiz Interval");
   }
   
   function updateQuizTimer() {
     const minutes = Math.floor(quizTime / 60); // set the minute display of the remaining seconds
     let seconds = quizTime % 60; // get the seconds of the remaining seconds after the minutes
     seconds = seconds < 10 ? "0"+seconds : seconds; // format seconds for output
-    console.log("min " + minutes +" sec " + seconds);
+    console.log("Quiz    min " + minutes +" sec " + seconds);
     quizTimer.innerHTML = `${minutes}:${seconds}`; // write to display
+    quizTime--; //decrement countdown
+  }
+
+  function startQuestionTimer(){
+    console.log ("Start Question Interval");
+    questionTime = 10; // set the total time for iterance
+    questionInterval =  setInterval(updateQuestionTimer, 1000); // set 1 second loop for function updateQuizTimer
+  }
+
+  function stopQuestionTimer(){
+    clearInterval(questionInterval);
+    console.log ("Stop Question Interval");
+  }
+  
+  function updateQuestionTimer() {
+    let seconds = questionTime; // get the seconds of the remaining seconds after the minutes
+    seconds = seconds < 10 ? "0"+seconds : seconds; // format seconds for output
+    console.log("Question   min " + minutes +" sec " + seconds);
+    questionTimer.innerHTML = `${seconds}`; // write to display
     quizTime--; //decrement countdown
   }
   
