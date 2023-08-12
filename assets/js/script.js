@@ -116,7 +116,7 @@ function startQuiz() {
     displayQuizPanel();
     btnNext.style.display = "block";
     quizTime = 120;
-    updateQuizTimer();
+    startQuizTimer();
     nextQuestion();
 }
 
@@ -128,10 +128,7 @@ function nextQuestion() {
       questionIndex += 1;
     } else {
         console.log("finished Questions, clear QuizTimer");
-        setTimeout(function() {
-          displayScoresPanel();
-          iQ = 0;
-        }, 2000);
+        stopQuizTimer();
     }
   }
   
@@ -166,15 +163,22 @@ function getRandomInt(min, max) {
 
   // Timer functions
 
+  function startQuizTimer(){
+    console.log ("Start Interval");
+    quizInterval =  setInterval(updateQuizTimer, 1000); // set 1 second loop for function updateQuizTimer
+  }
 
-  let quizInterval =  setInterval(updateQuizTimer, 1000); // set 1 second loop for function updateQuizTimer
+  function stopQuizTimer(){
+    clearInterval(quizInterval);
+    console.log ("Stop Interval");
+  }
   
   function updateQuizTimer() {
     const minutes = Math.floor(quizTime / 60); // set the minute display of the remaining seconds
     let seconds = quizTime % 60; // get the seconds of the remaining seconds after the minutes
     seconds = seconds < 10 ? "0"+seconds : seconds; // format seconds for output
     console.log("min " + minutes +" sec " + seconds);
-    quizTimer.innerHTML = "${minutes}:${seconds}"; // write to display
+    quizTimer.innerHTML = `${minutes}:${seconds}`; // write to display
     quizTime--; //decrement countdown
   }
   
