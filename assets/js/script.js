@@ -47,7 +47,7 @@ let currentPanel = "guide-panel";
 let questionIndex = 0;
 let qUsedIndices = []; // Array of questions used
 
- //   Quiz Time is always 2 minutes so can fix time values 
+//   Quiz Time is always 2 minutes so can fix time values 
 let quizTime = 120; // 2 minute counter
 let questionTime = 10; // this will be set by selectDifficulty in seconds
 
@@ -55,154 +55,154 @@ let questionTime = 10; // this will be set by selectDifficulty in seconds
 // Add event listeners
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Info Bar controls
-    homeInfoBarButton.addEventListener("click", displayWelcomePanel);
+  // Info Bar controls
+  homeInfoBarButton.addEventListener("click", displayWelcomePanel);
 
-    // Panel Button controls
-    quizDisplayButton.addEventListener("click", startQuiz);
-    guideDisplayButton.addEventListener("click", displayGuidePanel);
-    scoresDisplayButton.addEventListener("click", displayScoresPanel);
+  // Panel Button controls
+  quizDisplayButton.addEventListener("click", startQuiz);
+  guideDisplayButton.addEventListener("click", displayGuidePanel);
+  scoresDisplayButton.addEventListener("click", displayScoresPanel);
 
-    // Quiz controls
-    btnStart.addEventListener("click", startQuiz);
-    btnNext.addEventListener("click", nextQuestion);
+  // Quiz controls
+  btnStart.addEventListener("click", startQuiz);
+  btnNext.addEventListener("click", nextQuestion);
 })
 
 // Define functions
 // hide and display panel functions
 
 function hidePanels() {
-    // hide timers as well
-    //        gameTimerDisplay.classList.add("hidden");
-    //        questionTimerDisplay.classList.add("hidden");    
+  // hide timers as well
+  //        gameTimerDisplay.classList.add("hidden");
+  //        questionTimerDisplay.classList.add("hidden");    
 
-    let panels = document.getElementsByClassName("panel");
-    for (let i = 0; i < panels.length; i++)
-        panels[i].classList.add("hidden");
+  let panels = document.getElementsByClassName("panel");
+  for (let i = 0; i < panels.length; i++)
+    panels[i].classList.add("hidden");
 }
 
 function displayWelcomePanel() {
-    console.log("Welcome Panel");
-    hidePanels();
-    welcomePanel.classList.remove("hidden");
-    currentPanel = "welcome-panel";
+  console.log("Welcome Panel");
+  hidePanels();
+  welcomePanel.classList.remove("hidden");
+  currentPanel = "welcome-panel";
 }
 
 function displayQuizPanel() {
-    console.log("Quiz Panel");
-    hidePanels();
-    quizPanel.classList.remove("hidden");
-    currentPanel = "quiz-panel";
+  console.log("Quiz Panel");
+  hidePanels();
+  quizPanel.classList.remove("hidden");
+  currentPanel = "quiz-panel";
 }
 
 function displayScoresPanel() {
-    console.log("Scores Panel");
-    hidePanels();
-    scoresPanel.classList.remove("hidden");
-    currentPanel = "scores-panel";
+  console.log("Scores Panel");
+  hidePanels();
+  scoresPanel.classList.remove("hidden");
+  currentPanel = "scores-panel";
 }
 
 function displayGuidePanel() {
-    console.log("Guide Panel");
-    hidePanels();
-    guidePanel.classList.remove("hidden");
-    currentPanel = "guide-panel";
+  console.log("Guide Panel");
+  hidePanels();
+  guidePanel.classList.remove("hidden");
+  currentPanel = "guide-panel";
 }
 
 // Quiz Navigation Functions
 function startQuiz() {
-    console.log("Start Quiz");
-    questionIndex = 0; 
-    displayQuizPanel();
-    btnNext.style.display = "block";
-    quizTime = 120;
-    startQuizTimer();
-    nextQuestion();
+  console.log("Start Quiz");
+  questionIndex = 0;
+  displayQuizPanel();
+  btnNext.style.display = "block";
+  quizTime = 120;
+  startQuizTimer();
+  startQuestionTimer();
+  nextQuestion();
 }
 
 // Quiz Functions 
 function nextQuestion() {
-    if (questionIndex < quizQuestions.length) {
-      let iQr = getUniqueRandomInt(0, quizQuestions.length - 1);
-      displayQandA(iQr);
-      questionIndex += 1;
- /*     if (questionIndex > 0){
-        stopQuestionTimer();
-      }
-      startQuestionTimer(); */
-    } else {
-        console.log("finished Questions, clear QuizTimer");
-        stopQuizTimer();
+  if (questionIndex < quizQuestions.length) {
+    let iQr = getUniqueRandomInt(0, quizQuestions.length - 1);
+    displayQandA(iQr);
+    questionIndex += 1;
+    if (questionIndex > 0) {
+      stopQuestionTimer();
     }
+    startQuestionTimer();
+  } else {
+    console.log("finished Questions, clear QuizTimer");
+    stopQuizTimer();
   }
-  
-function displayQandA(iQr) {
-    // here goes the if statement to make the start quiz button dissapear
-   /* if (btnStart.style.display !== "none"){
-      console.log ("hiding display button");
-      btnStart.style.display = "none";
-    } */
-    quizQuestion.innerText = quizQuestions[iQr].q;
-    quizAnswer1.innerText = quizQuestions[iQr].a;
-    quizAnswer2.innerText = quizQuestions[iQr].b;
-    quizAnswer3.innerText = quizQuestions[iQr].a;
-    quizAnswer4.innerText = quizQuestions[iQr].b;
-  }
+}
 
-  // Maintain Array of used questions to return unique no.
+function displayQandA(iQr) {
+  // here goes the if statement to make the start quiz button dissapear
+  /* if (btnStart.style.display !== "none"){
+     console.log ("hiding display button");
+     btnStart.style.display = "none";
+   } */
+  quizQuestion.innerText = quizQuestions[iQr].q;
+  quizAnswer1.innerText = quizQuestions[iQr].a;
+  quizAnswer2.innerText = quizQuestions[iQr].b;
+  quizAnswer3.innerText = quizQuestions[iQr].a;
+  quizAnswer4.innerText = quizQuestions[iQr].b;
+}
+
+// Maintain Array of used questions to return unique no.
 function getUniqueRandomInt(min, max) {
   do {
-     iQu = getRandomInt (min, max);
+    iQu = getRandomInt(min, max);
   }
   while (qUsedIndices.includes(iQu));
   qUsedIndices.push(iQu);
   return iQu;
 }
-  // Random integer between min (inclusive) and max (inclusive)
+// Random integer between min (inclusive) and max (inclusive)
 function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
-  // Timer functions
+// Timer functions
 
-  function startQuizTimer(){
-    console.log ("Start Quiz Interval");
-    quizTime = 120; // set the total time for iterance
-    quizInterval =  setInterval(updateQuizTimer, 1000); // set 1 second loop for function updateQuizTimer
-  }
+function startQuizTimer() {
+  console.log("Start Quiz Interval");
+  quizTime = 120; // set the total time for iterance
+  quizInterval = setInterval(updateQuizTimer, 1000); // set 1 second loop for function updateQuizTimer
+}
 
-  function stopQuizTimer(){
-    clearInterval(quizInterval);
-    console.log ("Stop Quiz Interval");
-  }
-  
-  function updateQuizTimer() {
-    const minutes = Math.floor(quizTime / 60); // set the minute display of the remaining seconds
-    let seconds = quizTime % 60; // get the seconds of the remaining seconds after the minutes
-    seconds = seconds < 10 ? "0"+seconds : seconds; // format seconds for output
-    console.log("Quiz    min " + minutes +" sec " + seconds);
-    quizTimer.innerHTML = `${minutes}:${seconds}`; // write to display
-    quizTime--; //decrement countdown
-  }
+function stopQuizTimer() {
+  clearInterval(quizInterval);
+  console.log("Stop Quiz Interval");
+}
 
-  function startQuestionTimer(){
-    console.log ("Start Question Interval");
-    questionTime = 10; // set the total time for iterance
-    questionInterval =  setInterval(updateQuestionTimer, 1000); // set 1 second loop for function updateQuizTimer
-  }
+function updateQuizTimer() {
+  const minutes = Math.floor(quizTime / 60); // set the minute display of the remaining seconds
+  let seconds = quizTime % 60; // get the seconds of the remaining seconds after the minutes
+  seconds = seconds < 10 ? "0" + seconds : seconds; // format seconds for output
+  console.log("Quiz    min " + minutes + " sec " + seconds);
+  quizTimer.innerHTML = `${minutes}:${seconds}`; // write to display
+  quizTime--; //decrement countdown
+}
 
-  function stopQuestionTimer(){
-    clearInterval(questionInterval);
-    console.log ("Stop Question Interval");
-  }
-  
-  function updateQuestionTimer() {
-    let seconds = questionTime; // get the seconds of the remaining seconds after the minutes
-    seconds = seconds < 10 ? "0"+seconds : seconds; // format seconds for output
-    console.log("Question   min " + minutes +" sec " + seconds);
-    questionTimer.innerHTML = `${seconds}`; // write to display
-    quizTime--; //decrement countdown
-  }
-  
+function startQuestionTimer() {
+  console.log("Start Question Interval");
+  questionTime = 10; // set the total time for iterance
+  questionInterval = setInterval(updateQuestionTimer, 1000); // set 1 second loop for function updateQuizTimer
+}
+
+function stopQuestionTimer() {
+  clearInterval(questionInterval);
+  console.log("Stop Question Interval");
+}
+
+function updateQuestionTimer() {
+  let seconds = questionTime; // get the seconds of the remaining seconds after the minutes
+  seconds = seconds < 10 ? "0" + seconds : seconds; // format seconds for output
+  console.log("Question  sec " + seconds);
+  questionTimer.innerHTML = `${seconds}`; // write to display
+  quizTime--; //decrement countdown
+}
