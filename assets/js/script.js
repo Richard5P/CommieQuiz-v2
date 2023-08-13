@@ -56,16 +56,22 @@ let questionTime = 10; // this will be set by selectDifficulty in seconds
 
 document.addEventListener("DOMContentLoaded", function () {
   // Info Bar controls
-  homeInfoBarButton.addEventListener("click", displayWelcomePanel);
+  homeInfoBarButton.addEventListener("click", function() 
+    {displayWelcomePanel()});
 
   // Panel Button controls
-  quizDisplayButton.addEventListener("click", startQuiz);
-  guideDisplayButton.addEventListener("click", displayGuidePanel);
-  scoresDisplayButton.addEventListener("click", displayScoresPanel);
+  quizDisplayButton.addEventListener("click", function() {
+    startQuiz()});
+  guideDisplayButton.addEventListener("click", function() {
+    displayGuidePanel()});
+  scoresDisplayButton.addEventListener("click", function() {
+    displayScoresPanel()});
 
   // Quiz controls
-  btnStart.addEventListener("click", startQuiz);
-  btnNext.addEventListener("click", nextQuestion);
+  btnStart.addEventListener("click", function() {
+    startQuiz()});
+  btnNext.addEventListener("click", function() {
+    nextQuestion()});
 })
 
 // Define functions
@@ -146,8 +152,8 @@ function displayQandA(iQr) {
   quizQuestion.innerText = quizQuestions[iQr].q;
   quizAnswer1.innerText = quizQuestions[iQr].a;
   quizAnswer2.innerText = quizQuestions[iQr].b;
-  quizAnswer3.innerText = quizQuestions[iQr].a;
-  quizAnswer4.innerText = quizQuestions[iQr].b;
+  quizAnswer3.innerText = quizQuestions[iQr].c;
+  quizAnswer4.innerText = quizQuestions[iQr].d;
 }
 
 // Maintain Array of used questions to return unique no.
@@ -170,13 +176,15 @@ function getRandomInt(min, max) {
 
 function startQuizTimer() {
   console.log("Start Quiz Interval");
-  quizTime = 120; // set the total time for iterance
   quizInterval = setInterval(updateQuizTimer, 1000); // set 1 second loop for function updateQuizTimer
 }
 
 function stopQuizTimer() {
+  console.log ("quizTime before clear Interval: " + quizTime);
   clearInterval(quizInterval);
   console.log("Stop Quiz Interval");
+  quizTime = 120; // set the total time for iterance
+  console.log ("quizTime after clear Interval: " + quizTime);
 }
 
 function updateQuizTimer() {
@@ -204,5 +212,5 @@ function updateQuestionTimer() {
   seconds = seconds < 10 ? "0" + seconds : seconds; // format seconds for output
   console.log("Question  sec " + seconds);
   questionTimer.innerHTML = `${seconds}`; // write to display
-  quizTime--; //decrement countdown
+  questionTime--; //decrement countdown
 }
