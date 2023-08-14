@@ -49,7 +49,8 @@ let qUsedIndices = []; // Array of questions used
 
 //   Quiz Time is always 2 minutes so can fix time values 
 let quizTime = 120; // 2 minute counter
-let questionTime = 10; // this will be set by selectDifficulty in seconds
+let difficultyTime = 60; // this will be set by selectDifficulty in seconds
+let questionTime = 0;
 
 
 // Add event listeners
@@ -71,7 +72,9 @@ document.addEventListener("DOMContentLoaded", function () {
   btnStart.addEventListener("click", function() {
     startQuiz()});
   btnNext.addEventListener("click", function() {
-    nextQuestion()});
+    stopQuestionTimer()});  
+  btnNext.addEventListener("click", function() {
+      nextQuestion()});
 })
 
 // Define functions
@@ -136,7 +139,7 @@ function nextQuestion() {
     if (questionIndex > 0) {
       stopQuestionTimer();
     }
-    startQuestionTimer();
+    startQuestionTimer(questionIndex);
   } else {
     console.log("finished Questions, clear QuizTimer");
     stopQuizTimer();
@@ -196,21 +199,22 @@ function updateQuizTimer() {
   quizTime--; //decrement countdown
 }
 
-function startQuestionTimer() {
-  console.log("Start Question Interval");
-  questionTime = 10; // set the total time for iterance
+function startQuestionTimer(Qi) {
+  console.log("Start Question Interval for Q: " + Qi);
   questionInterval = setInterval(updateQuestionTimer, 1000); // set 1 second loop for function updateQuizTimer
 }
 
 function stopQuestionTimer() {
   clearInterval(questionInterval);
   console.log("Stop Question Interval");
+  questionTime = difficultyTime; // reset the total time for iterance
 }
 
 function updateQuestionTimer() {
-  let seconds = questionTime; // get the seconds of the remaining seconds after the minutes
-  seconds = seconds < 10 ? "0" + seconds : seconds; // format seconds for output
-  console.log("Question  sec " + seconds);
-  questionTimer.innerHTML = `${seconds}`; // write to display
-  questionTime--; //decrement countdown
+  while (questionTime > 0) {
+    questionTime = questionTime < 10 ? "0" + questionTime : questionTime; // format seconds for output
+    console.log("Question  sec " + questionTime);
+    questionTimer.innerHTML = `${questionTime}`; // write to display
+    questionTime--; //decrement countdown
+  };
 }
